@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main1.master.cs" Inherits="Labfootball.Main1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <link href="bootstarp/css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <style>
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+        .search-container i{
+            margin-top:27px;
+            font-size: 22px;
+        }
+        #TextBox1
+        {
+            margin-right : 20px;
+        }
+        #username
+        {
+            color: cyan;
+            font-size: 28px;
+            font-family: "Playfair Display", Arial, serif;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+       <form id="form1" runat ="server" >
+    <header>
+        <div class="header-area d-flex justify-content-between">
+            <div class="left_area d-flex">
+                <img src="./Images/Logo.jpeg" class="logo-icon">
+                <h3>FOOTBALL <span>TODAY</span></h3>
+                <div class="menu_bars" id="menu_bars">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+            <asp:Label ID="username" runat="server" Text=""></asp:Label>
+            <div class="right_area" >    
+            <div class="search-container">
+                <asp:TextBox ID="TextBox1" runat="server" placeholder="Search player..."></asp:TextBox>
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+
+            </div>
+        </div>
+    </header>
+
+
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+
+                 </asp:ContentPlaceHolder>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    
+    <script src="glide-slider/slider.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
