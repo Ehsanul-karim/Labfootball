@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -72,20 +74,40 @@ namespace Labfootball
 
             return isValidUser;
         }
+        private string EncryptPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
 
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             String password_1 = PasswordTextBox.Text.Trim();
+            string encryptedPassword = EncryptPassword(password_1);
+
+            HttpCookie cookie = new HttpCookie("UserInfo");
             if (RadioButton1.Checked)
             {
 
-                string query = "SELECT * FROM Manager_Lists WHERE email = '"+ emailTextBox.Text.Trim() +"' AND password = '"+ password_1+"';";
+                string query = "SELECT * FROM Manager_Lists WHERE email = '"+ emailTextBox.Text.Trim() +"' AND password = '"+ encryptedPassword+"';";
 
                 bool isValidUser = CheckUserCredentials(query,1);
 
 
                 if (isValidUser)
                 {
+                    cookie["email"]=emailTextBox.Text.Trim();
+                    cookie["password"]=password_1;
+                    Session["email"]=emailTextBox.Text.Trim();
+                    Response.Cookies.Add(cookie);
                     Response.Redirect("~/home_m.aspx?type="+User_name+"&club_name="+club_name+"");
                 }
                 else
@@ -95,12 +117,16 @@ namespace Labfootball
             }
             else
             {
-                string query = "SELECT * FROM User_Lists WHERE email = '"+ emailTextBox.Text.Trim() +"' AND password = '"+ password_1+"';";
+                string query = "SELECT * FROM User_Lists WHERE email = '"+ emailTextBox.Text.Trim() +"' AND password = '"+ encryptedPassword+"';";
 
                 bool isValidUser = CheckUserCredentials(query,2);
 
                 if (isValidUser)
                 {
+                    cookie["email"]=emailTextBox.Text.Trim();
+                    cookie["password"]=password_1;
+                    Session["email"]=emailTextBox.Text.Trim();
+                    Response.Cookies.Add(cookie);
                     Response.Redirect("~/home_m.aspx?type="+User_name+"&club_name="+club_name+"");
                 }
                 else

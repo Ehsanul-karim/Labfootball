@@ -2156,8 +2156,9 @@
     <Content Include="Images\Coaching Manual-244-min.jpg" />
     <Content Include="Images\collage-2017-07-27-768x576.jpg" />
     <Content Include="Images\Color-of-the-Manchester-United-Logo-500x375.jpg" />
-    <Content Include="Images\default-team-logo %281%29.png" />
+    <Content Include="Images\default-team-logo%281%29.png" />
     <Content Include="Images\default-team-logo.png" />
+    <Content Include="Images\developerImage.jpg" />
     <Content Include="Images\download.jpeg" />
     <Content Include="Images\fanss.jpg" />
     <Content Include="Images\favicon.png" />
@@ -2165,6 +2166,8 @@
     <Content Include="Images\field.jpg" />
     <Content Include="Images\FIFA 23 Reveal Trailer - The World’s Game.mp4" />
     <Content Include="Images\football-field.png" />
+    <Content Include="Images\footer.jpg" />
+    <Content Include="Images\footerplus.jpg" />
     <Content Include="Images\Formation\3-5-2.png" />
     <Content Include="Images\Formation\4-1-2-1-2.png" />
     <Content Include="Images\Formation\4-2-3-1.png" />
@@ -2179,6 +2182,8 @@
     <Content Include="Images\icon4.png" />
     <Content Include="Images\icon5.png" />
     <Content Include="Images\icon6.png" />
+    <Content Include="Images\managerWelcome.jpg" />
+    <Content Include="Images\my website logo.jpeg" />
     <Content Include="Images\player_inventory\icons8-add-user-male-50.png" />
     <Content Include="Images\icons8-forgot-password-50.png" />
     <Content Include="Images\icons8-login-50.png" />
@@ -2227,10 +2232,12 @@
     <Content Include="Images\reignite_v2.jpg.img.1175.medium.jpg" />
     <Content Include="Images\search.png" />
     <Content Include="Images\search2.png" />
+    <Content Include="Images\serviceback.jpg" />
     <Content Include="Images\settings.png" />
     <Content Include="Images\settings2.png" />
     <Content Include="Images\skysports-premier-league-graphic_5458724.jpg" />
     <Content Include="Images\Soccorfield-2.jpg" />
+    <Content Include="Images\supporterWelcomereal.jpg" />
     <Content Include="Images\team_1.jpg" />
     <Content Include="Images\team_2.jpg" />
     <Content Include="Images\team_3.jpg" />
@@ -2248,6 +2255,7 @@
     <Content Include="prixima\js\bootstrap.bundle.min.js" />
     <Content Include="prixima\js\jquery.min.js" />
     <Content Include="prixima\js\owl.carousel.min.js" />
+    <Content Include="settings.aspx" />
     <Content Include="transfer.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -2255,6 +2263,7 @@
     <Content Include="signUp.aspx" />
     <Content Include="AddPlayerRecord.aspx" />
     <Content Include="WebForm5.aspx" />
+    <Content Include="forgetpassword.aspx" />
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -2336,6 +2345,13 @@
       <DependentUpon>point_table.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="settings.aspx.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="settings.aspx.designer.cs">
+      <DependentUpon>settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2384,6 +2400,13 @@
     </Compile>
     <Compile Include="WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgetpassword.aspx.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgetpassword.aspx.designer.cs">
+      <DependentUpon>forgetpassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="WelcomePage.aspx.cs">
       <DependentUpon>WelcomePage.aspx</DependentUpon>
@@ -2451,6 +2474,7 @@
     <Content Include="Images\soccer-club-logos-768x512.jpg.webp" />
     <Content Include="Main1.Master" />
     <Content Include="Master2.Master" />
+    <Content Include="Images\supporterWelcomedss.webp" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">

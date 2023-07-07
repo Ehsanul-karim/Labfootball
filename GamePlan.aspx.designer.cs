@@ -231,6 +231,33 @@ namespace Labfootball
         protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
 
         /// <summary>
+        /// playerNameHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden playerNameHidden;
+
+        /// <summary>
+        /// playerName2Hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden playerName2Hidden;
+
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LinkButton1;
+
+        /// <summary>
         /// session_club control.
         /// </summary>
         /// <remarks>
@@ -247,5 +274,14 @@ namespace Labfootball
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor homeLink;
+
+        /// <summary>
+        /// settingslink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor settingslink;
     }
 }

@@ -1,33 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main1.Master" AutoEventWireup="true" CodeBehind="GamePlan.aspx.cs" Inherits="Labfootball.GamePlan" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
            <script type="text/javascript">
-
+                
                function readURL2(imgId, imageUrl) {
                    $('#' + imgId).attr('src', imageUrl);
                }
-           function readURL3(imageUrl2) {
-               $('#imgview2').attr('src', imageUrl2);
-           }
-
+               function readURL3(imageUrl2) {
+                    $('#imgview2').attr('src', imageUrl2);
+               }
+               var playerName;
+               var playerName2;
                $(document).ready(function () {
-                   // Add click event handler to player containers
+
                    $(".playground-player").click(function () {
-                       // Remove 'selected' class from all player containers
+
                        $(".playground-player").removeClass("selected");
 
-                       // Add 'selected' class to the clicked player container
                        $(this).addClass("selected");
+
+                       playerName = $(this).find(".truncated-player-name .content-wrapper").text().trim();
+
+                       $("#<%= playerNameHidden.ClientID %>").val(playerName);
                    });
                });
 
                $(document).ready(function () {
-                   // Add click event handler to item containers
+                   
                    $(".item").click(function () {
-                       // Remove 'selected' class from all item containers
+                       
                        $(".item").removeClass("selected");
 
-                       // Add 'selected' class to the clicked item container
+                       
                        $(this).addClass("selected");
+
+                       
+                       playerName2 = $(this).find("h6:first").text().trim();
+
+                       $("#<%= playerName2Hidden.ClientID %>").val(playerName2);
+                  
                    });
                });
 
@@ -146,15 +156,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.text-left{
+    transform: translate(90%, -200%);
+}
+
 .SwapButton {
     display: inline-block; /* Add this line */
   border-radius: 50%;
   width: 60px;
   height:60px;
   background-color: white;
+  color:black;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size:40px;
+}
+.SwapButton:hover {
+  background-color: dimgray;
+  color:white;
+}
+.DoneButton{
+  width: 80px;
+  height:50px;
+ background-color: #1210a9e6;
+  color:white;
+  font-size:30px;
 }
 
     </style>
@@ -168,11 +195,13 @@
                             <div class="card-wraper">
                                 <div class="card">
                                     <div class="row">
-                                        <asp:Repeater ID="RepeaterSubstitute" runat="server" OnItemCommand="Substitute_ItemCommand">
+                                        <asp:Repeater ID="RepeaterSubstitute" runat="server">
                                             <ItemTemplate>
                                                 <div class="item col-md-6">
+
                                                     <asp:Image class="card-img-top" runat="server" ImageUrl='<%# Eval("image") %>' />
                                                     <h6><%# Eval("player_name") %></h6>
+                                                    <h6><%# Eval("position") %></h6>
                                                 </div>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -192,7 +221,7 @@
                                             </div>
                                         </div>
                                 </div>
-                                <div class="playground-player player2">
+                                <div class="playground-player player2" >
                                      <asp:Image ID="playerImage2" runat="server"  alt="Player Image" ImageUrl="~/Images/bg.png"/>
                                         <div class="truncated-player-name">
                                             <div class="content-wrapper">
@@ -233,7 +262,7 @@
                                         </div>
                                    
                                 </div>
-                               <div class="playground-player player7">
+                               <div class="playground-player player7" >
                                    <asp:Image ID="playerImage7" runat="server"  alt="Player Image" ImageUrl="~/Images/bg.png"/>
                                         <div class="truncated-player-name">
                                             <div class="content-wrapper">
@@ -255,7 +284,7 @@
                                                 <asp:Label ID="Label9" runat="server" Text="Labellingggggggggggggg"></asp:Label>
                                             </div>
                                         </div>                                </div>
-                               <div class="playground-player player10">
+                               <div class="playground-player player10" >
                                    <asp:Image ID="playerImage10" runat="server"  alt="Player Image" ImageUrl="~/Images/bg.png"/>
                                         <div class="truncated-player-name">
                                             <div class="content-wrapper">
@@ -273,10 +302,17 @@
                             </div>
                         </div>
                             <div class="col-md-12 text-center">
-                                    <asp:LinkButton ID="LinkButton2" CssClass="SwapButton" runat="server" BackColor="Green">
+                                    <asp:LinkButton ID="LinkButton2" CssClass="SwapButton" runat="server" OnClick="swapbutton_click">
                                           <i class="fa-solid fa-shuffle"></i>
                                     </asp:LinkButton>
+                                    <input type="hidden" id="playerNameHidden" runat="server" />
+                                    <input type="hidden" id="playerName2Hidden" runat="server" />
                             </div>
+                            <div class="col-md-12 text-left">
+                                    <asp:Button ID="LinkButton1" CssClass="DoneButton" runat="server" Text="Done" OnClick="Donebutton_click">                                         
+                                    </asp:Button>
+                            </div>
+
                     </div>
             </div>
 </asp:Content>
@@ -292,8 +328,8 @@
             
         </ul>
          <ul class="nav-links settings-menu">
-            <li class="nav-item"> <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
-            <li class="nav-item"> <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
+            <li class="nav-item"> <a  id="settingslink" runat="server" href="settings.aspx"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+            <li class="nav-item"> <a href="WelcomePage.aspx"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
          </ul>
        </div>
 </asp:Content>

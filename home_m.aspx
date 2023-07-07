@@ -17,9 +17,7 @@
            function readURL2(imageUrl) {
                    $('#imgview').attr('src', imageUrl);
                }
-
-           </script>
-
+            </script>
     <style>
     </style>
 
@@ -45,10 +43,11 @@
                 <h1>Goalkeeper</h1>
             </div>
 
-
+            
             <div class="glide-testimonial"> 
                 <div class="glide__track" data-glide-el="track"> 
                     <div class="slider d-flex"> 
+
                         <asp:Repeater ID="Repeaterkeeper" runat="server" OnItemCommand="Keeper_ItemCommand" OnItemDataBound="Repeaterkeeper_ItemDataBound">
                             <ItemTemplate>
                                 <div class="slider-items">
@@ -69,10 +68,10 @@
                                         <span><%# Eval("age") %> years</span>
                                     </div>
                                 </div>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="cart-icon" CommandName="DisablePlayer" CommandArgument='<%# Eval("player_name") %>'>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="cart-icon" CommandName="SellPlayer" CommandArgument='<%# Eval("player_name") %>'>
                                                 <i class="fa-solid fa-shopping-cart"></i>
                                             </asp:LinkButton>
-                                            <a href="#">Read More</a>
+                                            <a href="https://en.wikipedia.org/wiki/<%# Eval("player_name") %>">Read More</a>
                                             <asp:LinkButton ID="disablePlayer" runat="server" BackColor="Green" CommandName="DisablePlayer" CommandArgument='<%# Eval("player_name") %>'>
                                                 <i class="fa-solid fa-ban"></i>
                                             </asp:LinkButton>
@@ -116,8 +115,10 @@
                                         <span><%# Eval("age") %> years</span>
                                     </div>
                                 </div>
-                                             <a href="#" class="cart-icon"><i class="fa-solid fa-shopping-cart"></i></a>
-                                            <a href="#">Read More</a>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="cart-icon" CommandName="SellPlayer" CommandArgument='<%# Eval("player_name") %>'>
+                                                <i class="fa-solid fa-shopping-cart"></i>
+                                            </asp:LinkButton>
+                                            <a href="https://en.wikipedia.org/wiki/<%# Eval("player_name") %>">Read More</a>
                                             <asp:LinkButton ID="disablePlayer" runat="server" CssClass="disable" CommandName="DisablePlayer" CommandArgument='<%# Eval("player_name") %>'>
                                                 <i class="fa-solid fa-ban"></i>
                                             </asp:LinkButton>
@@ -133,21 +134,6 @@
                   <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Player Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                   <h4>Player Name:</h4>
-                    <p>Country</p>
-                    <p>Age:</p>
-            </div>
-        </div>
-    </div>
-</div>
             <div class="player-intro-title">
                 <h1>Mid-Fielder</h1>
             </div>
@@ -174,8 +160,10 @@
                                         <span><%# Eval("age") %> years</span>
                                     </div>
                                 </div>
-                                            <a href="#" class="cart-icon"><i class="fa-solid fa-shopping-cart"></i></a>
-                                            <a href="#">Read More</a>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="cart-icon" CommandName="SellPlayer" CommandArgument='<%# Eval("player_name") %>'>
+                                                <i class="fa-solid fa-shopping-cart"></i>
+                                            </asp:LinkButton>
+                                            <a href="https://en.wikipedia.org/wiki/<%# Eval("player_name") %>">Read More</a>
                                             <asp:LinkButton ID="disablePlayer" runat="server" Class="disable" CommandName="DisablePlayer" CommandArgument='<%# Eval("player_name") %>'>
                                                 <i class="fa-solid fa-ban"></i>
                                             </asp:LinkButton>
@@ -218,8 +206,10 @@
                                         <span><%# Eval("age") %> years</span>
                                     </div>
                                 </div>
-                                            <a href="#" class="cart-icon"><i class="fa-solid fa-shopping-cart"></i></a>
-                                            <a href="#">Read More</a>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="cart-icon" CommandName="SellPlayer" CommandArgument='<%# Eval("player_name") %>'>
+                                                <i class="fa-solid fa-shopping-cart"></i>
+                                            </asp:LinkButton>
+                                            <a href="https://en.wikipedia.org/wiki/<%# Eval("player_name") %>">Read More</a>
                                             <asp:LinkButton ID="disablePlayer" runat="server" Class="disable" CommandName="DisablePlayer" CommandArgument='<%# Eval("player_name") %>'>
                                                 <i class="fa-solid fa-ban"></i>
                                             </asp:LinkButton>
@@ -252,13 +242,15 @@
         </div>
     <ul class="nav-links">
     <li class="nav-item active"><a href="#"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
-            <li class="nav-item"><a href="transfer.aspx"><i class="fa-solid fa-futbol"></i><span>Market Place</span></a></li>
-            <li class="nav-item"><a href="match-schedule.aspx"><i class="fa-regular fa-calendar-days"></i><span>Match Schedule</span></a></li>
-            <li class="nav-item"><a href="point_table.aspx"><i class="fa-solid fa-ranking-star"></i><span>Point Table</span></a></li>
+            <li class="nav-item"><a id="transferLink" runat="server" href="transfer.aspx"><i class="fa-solid fa-futbol"></i><span>Market Place</span></a></li>
+
+            <li class="nav-item"><a id="formationLink" runat="server" href="GamePlan.aspx"><i class="fa-sharp fa-solid fa-box"></i><span>Team Formation</span></a></li>
+            <!--<li class="nav-item"><a href="match-schedule.aspx"><i class="fa-regular fa-calendar-days"></i><span>Match Schedule</span></a></li> -->
+            <!--<li class="nav-item"><a href="point_table.aspx"><i class="fa-solid fa-ranking-star"></i><span>Point Table</span></a></li> -->
     </ul>
      <ul class="nav-links settings-menu">
-            <li class="nav-item"> <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
-            <li class="nav-item"> <a href="firstLogin.aspx"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
+            <li class="nav-item"> <a  id="settingslink" runat="server" href="settings.aspx"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+            <li class="nav-item"> <a href="WelcomePage.aspx"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
      </ul>
     </div>
 </asp:Content>

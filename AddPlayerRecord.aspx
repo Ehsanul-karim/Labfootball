@@ -204,7 +204,6 @@
                   </div>
                 </div>
             </div>
-            <a href="home_m.aspx">Back to Home</a><br>
             <br>
           </div>
           <div class="col-md-9">
@@ -320,8 +319,8 @@
              <li class="nav-item active"><a href="#"><i class="fa-solid fa-person-running"></i><span>Adding Player</span></a></li>
         </ul>
          <ul class="nav-links settings-menu">
-            <li class="nav-item"> <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
-            <li class="nav-item"> <a href="firstLogin.aspx"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
+            <li class="nav-item"> <a  id="settingslink" runat="server" href="settings.aspx"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+            <li class="nav-item"> <a href="WelcomePage.aspx"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log out</span></a></li>
          </ul>
        </div>
 </asp:Content>

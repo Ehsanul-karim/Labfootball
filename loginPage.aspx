@@ -45,7 +45,8 @@
             font-family: "Playfair Display", Arial, serif;
         }
     </style>
-  <title>Hello, world!</title>
+        <link rel="icon" type="image/jpeg" href="Images/my%20website%20logo.jpeg">
+  <title>Login/Football Today</title>
 </head>
 <body>
       <header id="header" class="fixed-top">
@@ -58,10 +59,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Football Today</a>
+                <a class="nav-link" aria-current="page" href="#header">Football Today</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="WelcomePage.aspx">Home</a>
               </li>
             </ul>
           </div>
@@ -105,7 +106,7 @@
                     <br />
                     <!-- Email input -->
                     <div class="form-outline mb-4">
-                        <asp:TextBox ID="emailTextBox" class="form-control form-control-lg" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="emailTextBox" class="form-control form-control-lg" runat="server" TextMode="Email"></asp:TextBox>
                         <label class="form-label" for="form1Example13">Email address</label>
                     </div>
 
@@ -121,7 +122,7 @@
                             <asp:CheckBox ID="RememberMeCheckBox" runat="server" Checked />
                             <label class="form-check-label" for="form1Example3">Remember me</label>
                         </div>
-                        <a href="#!">Forgot password?</a>
+                        <a href="forgetpassword.aspx">Forgot password?</a>
                     </div>
 
                     <!-- Submit button -->

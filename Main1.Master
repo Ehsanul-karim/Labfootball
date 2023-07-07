@@ -20,7 +20,7 @@
 
     <script src="datatables/js/jquery.dataTables.min.js"></script>
     <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
-
+    <link rel="icon" type="image/jpeg" href="Images/my%20website%20logo.jpeg">
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -81,8 +81,7 @@
     </form>
 
     
-    <script src="glide-slider/slider.js"></script>
     <script src="assets/js/main.js"></script>
-
+    <script src="glide-slider/slider.js"></script>
 </body>
 </html>

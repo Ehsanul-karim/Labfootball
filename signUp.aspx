@@ -3,18 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration Form</title>
+        <link rel="icon" type="image/jpeg" href="Images/my%20website%20logo.jpeg">
+  <title>Login/Football Today</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     body {
-      background-color: #f8f9fa;
+      color: #bccee1;
       padding: 20px;
+      background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), url('./Images/footer.jpg'), #082032;
     }
     
     .container {
       max-width: 400px;
       margin: 0 auto;
-      background-color: #ffffff;
+      background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), url('./Images/footerplus2.jpg'), #082032;
       border-radius: 5px;
       padding: 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -37,7 +39,8 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="cont" runat="server">
+
     <form id="form1" runat="server">
     <h2>Registration Form</h2>
       <div class="form-group">
@@ -46,7 +49,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <asp:TextBox ID="EmailTextBox" class="form-control" runat="server" placeholder="Enter your email"></asp:TextBox>
+        <asp:TextBox ID="EmailTextBox" class="form-control" runat="server" placeholder="Enter your email" TextMode="Email"></asp:TextBox>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
@@ -85,12 +88,13 @@
           <p>Already have an account?<a href="loginPage.aspx" data-bs-toggle="modal" data-bs-target="#exampleModal">Signin</a></p>
       </div>
         <p>Or connect with:</p>
-        <a href="#" class="btn btn-primary social-btn">
+        <a href="https://www.facebook.com/" class="btn btn-primary social-btn">
           <i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook
         </a>
-        <a href="#" class="btn btn-danger social-btn">
+        <a href="https://www.gmail.com/" class="btn btn-danger social-btn">
           <i class="fab fa-google mr-2"></i> Sign in with Google
         </a>
       </div>
     </form>
-  </div
+  </div>
+</body>

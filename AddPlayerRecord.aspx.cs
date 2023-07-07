@@ -30,6 +30,7 @@ namespace Labfootball
             setImage();
             string url = $"home_m.aspx?type={User_Type}&club_name={club_name}";
             homeLink.HRef = url;
+            settingslink.HRef = $"Settings.aspx?type={User_Type}&club_name={club_name}";
         }
         private void setImage()
         {
@@ -162,7 +163,7 @@ namespace Labfootball
                 SqlConnection con = new SqlConnection(strcon1);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO Player_Lis ([player_id], [player_name], [country], [position] ,[join_date],[age],[salary],[market_price],[skillStatus],[image],[club_name]) VALUES (@player_id, @player_name, @country, @position, @join_date,@age,@salary,@market_price,@skillStatus,@image,@club_name);", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Player_Lis ([player_id], [player_name], [country], [position] ,[join_date],[age],[salary],[market_price],[skillStatus],[image],[club_name],[market_status]) VALUES (@player_id, @player_name, @country, @position, @join_date,@age,@salary,@market_price,@skillStatus,@image,@club_name,@market_status);", con);
                 cmd.Parameters.AddWithValue("@player_id", convertedPlayerID);
                 cmd.Parameters.AddWithValue("@player_name", playerName);
                 cmd.Parameters.AddWithValue("@country", country);
@@ -174,6 +175,8 @@ namespace Labfootball
                 cmd.Parameters.AddWithValue("@skillStatus", SkillStatus);
                 cmd.Parameters.AddWithValue("@image", filepath);
                 cmd.Parameters.AddWithValue("@club_name", club_name);
+                int lpl = 0;
+                cmd.Parameters.AddWithValue("@market_status", lpl);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
